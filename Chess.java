@@ -16,8 +16,9 @@ class Chess{
     public Chess()
     {
         reset();
+        //display();
+        resetPieces();
         display();
-        // resetPieces();
     }
     
     
@@ -47,7 +48,6 @@ class Chess{
         move("", "8f",'b');
         move("", "8g",'n');
         move("", "8h",'r');
-        System.out.println(board);
     }
     
     public void checkMove(){}
@@ -60,13 +60,24 @@ class Chess{
     }
     
     public void display()
-    {
+    {   
         for(int i=8; i>=1; i--){
+            System.out.print(Integer.toString(i)+" ");
             for(char letter : letters){
-                // System.out.print(letter + Integer.toString(i));   
+                (String) letter = letter;
+                System.out.print(board.get(letter+Integer.toString(i)) )+" ");
             }
+            System.out.print("\n\r");
         }
-        System.out.print(board);
+        
+        System.out.print("  ");
+        
+        for(char letter : letters)
+            System.out.print(letter+" ");
+        
+        System.out.println("");
+        
+        // System.out.print(board);
     }
     
     public void update(){}
