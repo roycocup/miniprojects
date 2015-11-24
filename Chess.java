@@ -33,21 +33,55 @@ class Chess{
                 squares.add(letter + Integer.toString(i));    
             }
             i--;
-            for(String square : squares)
-                board.put(square, '\0');
+            int j=1; 
+            for(String square : squares){
+                if (j%2 == 0)
+                    board.put(square, '☐');
+                else 
+                    board.put(square, '☒');
+                    
+                j++;
+            }
         }
     }
     
     public void resetPieces()
     {
-        move("", "8a",'r');
-        move("", "8b",'n');
-        move("", "8c",'b');
-        move("", "8d",'q');
-        move("", "8e",'k');
-        move("", "8f",'b');
-        move("", "8g",'n');
-        move("", "8h",'r');
+        move("", "a8",'r');
+        move("", "b8",'n');
+        move("", "c8",'b');
+        move("", "d8",'q');
+        move("", "e8",'k');
+        move("", "f8",'b');
+        move("", "g8",'n');
+        move("", "h8",'r');
+        
+        move("", "a7",'p');
+        move("", "b7",'p');
+        move("", "c7",'p');
+        move("", "d7",'p');
+        move("", "e7",'p');
+        move("", "f7",'p');
+        move("", "g7",'p');
+        move("", "h7",'p');
+        
+        move("", "a1",'r');
+        move("", "b1",'n');
+        move("", "c1",'b');
+        move("", "d1",'q');
+        move("", "e1",'k');
+        move("", "f1",'b');
+        move("", "g1",'n');
+        move("", "h1",'r');
+        
+        move("", "a2",'p');
+        move("", "b2",'p');
+        move("", "c2",'p');
+        move("", "d2",'p');
+        move("", "e2",'p');
+        move("", "f2",'p');
+        move("", "g2",'p');
+        move("", "h2",'p');
     }
     
     public void checkMove(){}
@@ -61,23 +95,25 @@ class Chess{
     
     public void display()
     {   
+        StringBuilder display = new StringBuilder();
+        
         for(int i=8; i>=1; i--){
-            System.out.print(Integer.toString(i)+" ");
+            display.append(Integer.toString(i)+" ");
             for(char letter : letters){
-                (String) letter = letter;
-                System.out.print(board.get(letter+Integer.toString(i)) )+" ");
+                String index = Character.toString(letter) + Integer.toString(i);
+                display.append(board.get(index) + " ");
             }
-            System.out.print("\n\r");
+            display.append("\n");
         }
         
-        System.out.print("  ");
+        // System.out.println(board);
+        
+        display.append("  ");
         
         for(char letter : letters)
-            System.out.print(letter+" ");
+            display.append(letter+" ");
         
-        System.out.println("");
-        
-        // System.out.print(board);
+        System.out.println(display.toString());
     }
     
     public void update(){}
