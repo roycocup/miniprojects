@@ -24,22 +24,25 @@ class Chess{
     
     public void reset()
     {
+        // lines 
         int i = 8; 
         while(i>=1)
         {
             List <String> squares = new ArrayList<String>();
-            
+            // rows
             for(char letter : letters ){
                 squares.add(letter + Integer.toString(i));    
             }
             i--;
             int j=1; 
             for(String square : squares){
-                if (j%2 == 0)
-                    board.put(square, '☐');
-                else 
-                    board.put(square, '☒');
-                    
+                //if the line is even
+                if (i%2 == 0)
+                    board.put(square, (j%2 == 0) ? '☐' : '☒');
+                  else 
+                    board.put(square, (j%2 == 0) ? '☒' : '☐');
+                
+                        
                 j++;
             }
         }
@@ -89,7 +92,7 @@ class Chess{
     public void move(String fromSquare, String toSquare, Character piece)
     {
         if (fromSquare != "")
-            board.put(fromSquare,'\0');
+            board.put(fromSquare,'☐');
         board.put(toSquare,piece);
     }
     
