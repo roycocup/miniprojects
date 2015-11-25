@@ -41,8 +41,6 @@ class Chess{
                     board.put(square, (j%2 == 0) ? '☐' : '☒');
                   else 
                     board.put(square, (j%2 == 0) ? '☒' : '☐');
-                
-                        
                 j++;
             }
         }
