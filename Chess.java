@@ -5,27 +5,44 @@ class Chess{
     
     public static void main(String[] args)
     {
-        Chess chess = new Chess();    
+        Chess chess = new Chess(args);    
     }
     
     Map<String,Character> board = new HashMap<String, Character>(); 
     List<String> moves = new ArrayList<String>();
     Character[] letters = {'a','b','c','d','e','f','g','h'};
     String move;
+    Scanner sc = new Scanner(System.in);
     
-    public Chess()
+    
+    public Chess(String[] args)
     {
         reset();
-        //display();
         resetPieces();
         display();
+        mainLoop();
     }
     
+    public void mainLoop()
+    {
+        boolean exit = false;
+        while(exit != true)
+            exit = listen();
+    }
+    
+    public boolean listen()
+    {
+        for (short i = 0; i <=10000; i++)
+        {
+            
+        }   
+        return true;
+    }
     
     public void reset()
     {
         // lines 
-        int i = 8; 
+        byte i = 8; 
         while(i>=1)
         {
             List <String> squares = new ArrayList<String>();
@@ -34,7 +51,7 @@ class Chess{
                 squares.add(letter + Integer.toString(i));    
             }
             i--;
-            int j=1; 
+            byte j=1; 
             for(String square : squares){
                 //if the line is even
                 if (i%2 == 0)
