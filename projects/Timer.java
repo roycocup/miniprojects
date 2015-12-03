@@ -5,7 +5,8 @@ class Timer{
     
     private int seconds = 5;
     
-    public Timer(){
+    public Timer(int seconds){
+        this.seconds = seconds;
         runTimer().start();
     }
     
@@ -14,7 +15,7 @@ class Timer{
             new Runnable() {
                 public void run()
                 {
-                    for(int i = seconds; i > 0; i--){
+                    for(int i = this.seconds; i > 0; i--){
                         try{
                             Thread.sleep(1000);
                             System.out.println(i);
@@ -29,7 +30,10 @@ class Timer{
     
     
     public static void main(String[] args){
-        Timer timer = new Timer();       
-    }
+        if (args.length() > 0)
+            new Timer(Integer.toInteger(args[0]));       
+        else
+            new Timer(Integer.toInteger(0));       
+    }   
     
 }
